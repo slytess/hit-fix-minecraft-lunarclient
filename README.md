@@ -4,6 +4,11 @@ An unofficial Windows console tool that creates a separate Lunar Client 1.7.10
 profile with a HitFix Java agent. Run it again to revert its installation.
 The installer and agent source code are included. Version: **0.1.1 (experimental)**.
 
+**Antivirus report under review:** A user reported 7/71 VirusTotal detections for
+v0.1.1. No detecting vendor has yet confirmed a false positive. See the
+[investigation, exact hash and verification evidence](docs/SECURITY-REVIEW.md)
+before deciding whether to use it. Do not disable antivirus or add exclusions.
+
 ## Download and run
 
 1. Download `LunarHitFixInstaller.exe` from [Releases](https://github.com/slytess/hit-fix-minecraft-lunarclient/releases).

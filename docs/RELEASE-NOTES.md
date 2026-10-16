@@ -1,5 +1,12 @@
 # v0.1.1 - experimental
 
+**Security review update (2026-10-16):** A user-supplied VirusTotal screenshot
+reports 7/71 detections matching this file's visible hash prefix and size.
+Source correspondence checks and a local Microsoft Defender scan are documented
+in the [investigation](https://github.com/slytess/hit-fix-minecraft-lunarclient/blob/main/docs/SECURITY-REVIEW.md).
+No detecting vendor has yet confirmed a false positive or removal. Do not disable
+antivirus or add exclusions. The reported binary has not been replaced.
+
 Console layout update for the unofficial Lunar 1.7.10 HitFix installer.
 
 - Compact startup screen with spacing and cyan title/menu keys.
@@ -44,4 +51,5 @@ with Lunar Client or Mojang.
 
 Download the EXE on its own, or the ZIP with documentation/notices/checksums.
 `hitfix-agent.jar` is also provided for inspection; the EXE already embeds it.
-The binaries are unsigned. No VirusTotal scan is claimed for this release.
+The binaries are unsigned. No independent live VirusTotal reanalysis or antivirus
+clearance is claimed; see the security review update above.

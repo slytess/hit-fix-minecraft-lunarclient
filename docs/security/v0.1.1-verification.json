@@ -1,0 +1,24 @@
+{
+  "release_exe_sha256": "a4abf4760f7729460d7db9d7226ba227e5ef11fb76e3d020e20a81a3cc9d1eac",
+  "release_exe_bytes": 170496,
+  "rebuilt_exe_sha256": "10f72d1fe3950bcfa78e8a9e45f1fc8232cc807b1bee84a9289ff76ec7dab3aa",
+  "normalized_exe_sha256": "b27ae10fa250fccfb6038d3e0f6de4f3b73ef38b0964c0c47498b1c1c7960989",
+  "rebuilt_normalized_exe_sha256": "b27ae10fa250fccfb6038d3e0f6de4f3b73ef38b0964c0c47498b1c1c7960989",
+  "exe_matches_rebuild_except_pe_timestamp_and_clr_mvid": true,
+  "embedded_agent_sha256": "a85635649daf6e86ad82d580d8d18fda51c2f24697f2e07e698b21819b47578b",
+  "embedded_agent_matches_published_jar": true,
+  "rebuilt_exe_embeds_same_agent": true,
+  "agent_classes_matching_independent_javac_output": [
+    "dev/hitfix/lunar/HitFixAgent$MinecraftTransformer$1$1.class",
+    "dev/hitfix/lunar/HitFixAgent$MinecraftTransformer$1$2.class",
+    "dev/hitfix/lunar/HitFixAgent$MinecraftTransformer$1.class",
+    "dev/hitfix/lunar/HitFixAgent$MinecraftTransformer.class",
+    "dev/hitfix/lunar/HitFixAgent.class",
+    "dev/hitfix/lunar/HitFixLog.class",
+    "dev/hitfix/lunar/RuntimeHooks$Access.class",
+    "dev/hitfix/lunar/RuntimeHooks.class"
+  ],
+  "asm_dependency_sha256": "6f3828a215c920059a5efa2fb55c233d6c54ec5cadca99ce1b1bdd10077c7ddd",
+  "bundled_asm_entries_matching_dependency": 38,
+  "limitation": "Integrity/source correspondence evidence, not a malware verdict or antivirus clearance."
+}
