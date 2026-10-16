@@ -1,0 +1,8 @@
+build/
+dist/
+release/
+*.log
+*.tmp
+state.json
+backups/
+.vs/
