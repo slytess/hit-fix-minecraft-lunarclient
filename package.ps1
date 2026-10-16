@@ -14,10 +14,10 @@ foreach ($file in @('README.md','LICENSE','THIRD_PARTY.txt')) {
     Copy-Item -LiteralPath (Join-Path $root $file) -Destination $stage
 }
 Copy-Item -LiteralPath (Join-Path $root 'docs\ERRORS.md'),(Join-Path $root 'docs\RELEASE-NOTES.md') -Destination (Join-Path $stage 'docs')
-$zip = Join-Path $release 'LunarHitFixInstaller-v0.1.0-windows.zip'
+$zip = Join-Path $release 'LunarHitFixInstaller-v0.1.1-windows.zip'
 Compress-Archive -Path (Join-Path $stage '*') -DestinationPath $zip -Force
 Copy-Item -LiteralPath (Join-Path $dist 'LunarHitFixInstaller.exe'),(Join-Path $dist 'hitfix-agent.jar'),(Join-Path $dist 'SHA256SUMS.txt') -Destination $release -Force
 $zipHash = (Get-FileHash -LiteralPath $zip -Algorithm SHA256).Hash.ToLowerInvariant()
-$sums = [IO.File]::ReadAllText((Join-Path $dist 'SHA256SUMS.txt')).TrimEnd() + "`n$zipHash  LunarHitFixInstaller-v0.1.0-windows.zip`n"
+$sums = [IO.File]::ReadAllText((Join-Path $dist 'SHA256SUMS.txt')).TrimEnd() + "`n$zipHash  LunarHitFixInstaller-v0.1.1-windows.zip`n"
 [IO.File]::WriteAllText((Join-Path $release 'SHA256SUMS.txt'), $sums, [Text.UTF8Encoding]::new($false))
 Write-Output "Release files: $release"

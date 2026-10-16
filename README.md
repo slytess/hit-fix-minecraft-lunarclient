@@ -2,7 +2,7 @@
 
 An unofficial Windows console tool that creates a separate Lunar Client 1.7.10
 profile with a HitFix Java agent. Run it again to revert its installation.
-The installer and agent source code are included. Version: **0.1.0 (experimental)**.
+The installer and agent source code are included. Version: **0.1.1 (experimental)**.
 
 ## Download and run
 
@@ -19,10 +19,12 @@ The installer and agent source code are included. Version: **0.1.0 (experimental
    location under `.lunarclient\hitfix-installer`.
 
 ```text
-1 - Install / select the HitFix profile
-2 - Revert this tool's installation
-0 - Exit
-Choose 1, 2 or 0:
+  [1] Install / select HitFix
+  [2] Revert installation
+  [3] Credits
+  [0] Exit
+
+  Choose 1, 2, 3 or 0:
 ```
 
 The EXE contains the agent; users do not need Python, a separate JAR download,
@@ -31,6 +33,9 @@ Framework 4.x runtime and Windows `winsqlite3.dll`, plus an existing Lunar
 **1.7.10** profile. Lunar supplies the Java runtime used by the game.
 This is for the normal Windows Lunar installation at `%USERPROFILE%\.lunarclient`.
 Custom Lunar installation roots are not supported by the menu.
+Option `3` displays the project and upstream credits, then returns to the menu
+without changing files. The compact startup screen keeps the detailed technical
+explanation in this README.
 
 ## Revert
 

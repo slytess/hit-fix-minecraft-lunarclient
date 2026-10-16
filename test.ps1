@@ -26,4 +26,15 @@ foreach ($javaExe in ($javaExecutables | Select-Object -Unique)) {
 }
 & $exe --version
 if ($LASTEXITCODE -ne 0) { throw 'Executable smoke test failed' }
-Write-Output 'PASS: installer fixtures, Java integration/classloader tests, executable startup'
+$menuOutput = (@('invalid', '3', '0') | & $exe) -join "`n"
+if ($LASTEXITCODE -ne 0) { throw 'Credits menu smoke test failed' }
+if ($menuOutput -notmatch 'Invalid choice' -or $menuOutput -notmatch '\[3\] Credits' -or $menuOutput -notmatch 'Packet-timing method: Incognitolol/HitFix-Mod') {
+    throw 'Expected menu, validation and credits were not displayed'
+}
+if ($menuOutput.IndexOf('Packet-timing method:') -lt $menuOutput.IndexOf('Choose 1, 2, 3 or 0:')) {
+    throw 'Credits appeared before the user selected them'
+}
+if (($menuOutput.Split(@('[3] Credits'), [StringSplitOptions]::None)).Count -lt 3) {
+    throw 'Credits did not return to the menu'
+}
+Write-Output 'PASS: installer fixtures, Java integration/classloader tests, executable menu and credits'

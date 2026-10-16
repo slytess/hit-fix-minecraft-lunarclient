@@ -1,12 +1,20 @@
-# v0.1.0 - experimental
+# v0.1.1 - experimental
 
-First public version of the unofficial Lunar 1.7.10 HitFix console installer.
+Console layout update for the unofficial Lunar 1.7.10 HitFix installer.
+
+- Compact startup screen with spacing and cyan title/menu keys.
+- New `3 - Credits` screen, available on demand and returning to the menu.
+- Startup no longer prints the full credits and technical description.
+- Updated English guide and short Telegram announcement with installation steps.
+
+Profile installation, recovery and the Java-agent behavior are unchanged.
 
 - `1` creates/selects a dedicated profile while retaining the source profile's
   JVM arguments and game/mod directories.
 - `2` removes the managed profile and restores the previous selection when
   appropriate. With no installation record, it reports that there is nothing
   to revert.
+- `3` displays credits without changing files.
 - Local backups, recovery journal, error codes and logs are included.
 - The Java agent is embedded in the EXE. No runtime downloads are required.
 - English README, source, build scripts, third-party notices and hashes are included.
@@ -19,7 +27,8 @@ rights, Python, separate .NET SDK or JDK are required to run the EXE.
 process termination at transaction boundaries, WAL-consistent backups, repeated
 install/revert, preservation of later profile edits, and absent/conflicting
 installation records. Agent integration and classloader isolation tests passed
-with Java 8, 17, 21 and 25. The console startup/menu was also checked.
+with Java 8, 17, 21 and 25. Automated console checks cover invalid choices,
+credits only after selection, return to the menu, and exit.
 
 The new installer has not been run against the author's live Lunar profile, and
 this release has not had a new end-to-end playtest. Test on the current Lunar

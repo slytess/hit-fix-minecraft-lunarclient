@@ -1,26 +1,24 @@
-I've published an open-source Windows installer for the unofficial Lunar Client
-1.7.10 HitFix adaptation.
+**Lunar 1.7.10 HitFix — source code available**
 
-It opens a console menu:
+The HitFix installer is now public, with the full source code so you can inspect
+what it does or build it yourself.
 
-- **1:** Create and select a separate Lunar 1.7.10 profile with HitFix.
-- **2:** Revert the installation and return to the previous profile selection
-  if the HitFix profile is still selected.
+It uses your existing Lunar Client installation and adds a separate profile with
+the HitFix agent. You do not need to download a replacement Lunar build or launcher.
 
-The original profile stays intact. The tool keeps local backups, reports error
-codes and writes diagnostic logs to help investigate problems. If there is no
-installation record, option 2 reports that there is nothing to revert.
+**How to install:**
+1. Download [LunarHitFixInstaller.exe](https://github.com/slytess/hit-fix-minecraft-lunarclient/releases/download/v0.1.1/LunarHitFixInstaller.exe).
+2. Close Minecraft and Lunar completely. If you already use an older HitFix
+   profile, select your normal profile before closing Lunar.
+3. Run the EXE, enter **1**, then open Lunar and launch **Lunar 1.7.10 + HitFix (Installer)**.
 
-The repository includes the installer and agent source, build instructions,
-an English usage guide and SHA-256 checksums for the release files.
+To undo it, close the game and Lunar, run the EXE again and enter **2**.
+Option **3** shows the credits. Your original profile is preserved.
 
-This is an **experimental release**. HitFix changes inbound packet processing
-timing; it is not limited to hits, and damage or teleports may feel different.
+Experimental release: this changes inbound packet timing beyond hits, so damage
+and teleports may feel different.
 
-The method is based on [Incognitolol/HitFix-Mod](https://github.com/Incognitolol/HitFix-Mod),
-whose README also credits [dewgs](https://github.com/dewgs). This is an unofficial
-community project and is not affiliated with Lunar Client.
+[Source code and English guide](https://github.com/slytess/hit-fix-minecraft-lunarclient)
 
-- [Source code and instructions](https://github.com/slytess/hit-fix-minecraft-lunarclient)
-- [Download v0.1.0](https://github.com/slytess/hit-fix-minecraft-lunarclient/releases/tag/v0.1.0)
-- [Report a problem](https://github.com/slytess/hit-fix-minecraft-lunarclient/issues)
+Based on the method from [Incognitolol/HitFix-Mod](https://github.com/Incognitolol/HitFix-Mod),
+which also credits [dewgs](https://github.com/dewgs). Unofficial community project.
