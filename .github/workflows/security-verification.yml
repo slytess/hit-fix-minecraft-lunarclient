@@ -20,6 +20,14 @@ jobs:
           persist-credentials: false
       - name: Checkout original published source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        env:
+          # The original manifest was embedded with LF bytes. Do not let the
+          # Windows runner's Git settings rewrite the historical checkout.
+          GIT_CONFIG_COUNT: '2'
+          GIT_CONFIG_KEY_0: core.autocrlf
+          GIT_CONFIG_VALUE_0: 'false'
+          GIT_CONFIG_KEY_1: core.eol
+          GIT_CONFIG_VALUE_1: lf
         with:
           ref: 6bf7314b3dac5c1f2af1937eb06859afdcd09d66
           path: release-source
@@ -44,8 +52,9 @@ jobs:
         shell: powershell
         run: .\tools\audit-release.ps1 -SourceDirectory .\release-source -ReleaseDirectory .\build\published-v0.1.1 -OutputPath .\build\security-evidence\v0.1.1-verification.json
       - name: Upload verification evidence
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: v0.1.1-source-correspondence-evidence
           path: build/security-evidence/v0.1.1-verification.json
-          if-no-files-found: error
+          if-no-files-found: warn

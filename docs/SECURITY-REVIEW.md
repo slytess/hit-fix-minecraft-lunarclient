@@ -67,6 +67,12 @@ Download the original v0.1.1 EXE and JAR into a local directory. The audit scrip
 refuses a different EXE hash. Check out the source commit above in a second
 directory, then run the audit tools from the current repository:
 
+The historical source must be checked out with Git `core.autocrlf=false` and
+`core.eol=lf`. In particular, the manifest's original LF bytes are embedded in the
+EXE; Git converting them to CRLF changes the binary even though the XML is
+semantically identical. The public workflow explicitly preserves those original
+bytes. The checker does not exclude or rewrite manifest bytes to make them pass.
+
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\audit-release.ps1 `
   -SourceDirectory C:\path\to\v0.1.1-source `

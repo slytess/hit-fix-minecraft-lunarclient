@@ -28,10 +28,11 @@ $compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 & $compiler /nologo /target:exe /platform:anycpu /optimize+ /reference:System.Web.Extensions.dll /reference:System.Core.dll "/win32manifest:$(Join-Path $SourceDirectory 'src\app.manifest')" "/out:$rebuilt" "/resource:$agent,hitfix-agent.jar" $csharpSources
 if ($LASTEXITCODE -ne 0) { throw 'Independent C# compilation failed' }
 $report = & $PythonPath (Join-Path $PSScriptRoot 'verify_release.py') $original $rebuilt $agent $vendor $classes
-if ($LASTEXITCODE -ne 0) { throw 'Binary/source correspondence verification failed' }
+$verificationExit = $LASTEXITCODE
 if ($OutputPath) {
     $OutputPath = [IO.Path]::GetFullPath($OutputPath)
     New-Item -ItemType Directory -Force -Path (Split-Path $OutputPath -Parent) | Out-Null
     [IO.File]::WriteAllText($OutputPath, ($report -join "`n") + "`n", [Text.UTF8Encoding]::new($false))
 }
 $report
+if ($verificationExit -ne 0) { throw 'Binary/source correspondence verification failed; see the report above' }
